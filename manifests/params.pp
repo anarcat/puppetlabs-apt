@@ -16,7 +16,9 @@ class apt::params {
   $conf_d         = "${root}/apt.conf.d"
   $preferences    = "${root}/preferences"
   $preferences_d  = "${root}/preferences.d"
+  $apt_conf_d     = "${root}/apt.conf.d"
   $keyserver      = 'keyserver.ubuntu.com'
+  $key_options    = undef
   $confs          = {}
   $update         = {}
   $purge          = {}
@@ -64,6 +66,7 @@ class apt::params {
     'sources.list.d' => false,
     'preferences'    => false,
     'preferences.d'  => false,
+    'apt.conf.d'     => false,
   }
 
   $source_key_defaults = {
@@ -82,7 +85,6 @@ class apt::params {
     'Debian': {
           $backports = {
             'location' => 'http://deb.debian.org/debian',
-            'key'      => 'A1BD8E9D78F7FE5C3E65D8AF8B48AD6246925553',
             'repos'    => 'main contrib non-free',
           }
       $ppa_options = undef
